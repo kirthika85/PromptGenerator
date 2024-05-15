@@ -28,14 +28,14 @@ generate_button = st.button("Generate Prompt")
 # Validation api_key
 #with st.form('my_form'):
      #submitted = st.form_submit_button('Submit')
-     if not openai_api_key.startswith('sk-'):
-        st.warning('Please enter your OpenAI API key!', icon='⚠')
-     if generate_button and openai_api_key.startswith('sk-'):
-        # Generate prompt on button click
-        if generate_button:
-            if topic:
-                st.write("Generating prompt...")
-                prompt = generate_prompt(topic, genre, length)
-                st.write(f"**Prompt:** {prompt}")
-            else:
-                st.error("Please enter a topic.")
+if not openai_api_key.startswith('sk-'):
+    st.warning('Please enter your OpenAI API key!', icon='⚠')
+if generate_button and openai_api_key.startswith('sk-'):
+    # Generate prompt on button click
+    if generate_button:
+        if topic:
+            st.write("Generating prompt...")
+            prompt = generate_prompt(topic, genre, length)
+            st.write(f"**Prompt:** {prompt}")
+        else:
+            st.error("Please enter a topic.")
