@@ -12,7 +12,7 @@ def generate_prompt(topic, genre, length):
         prompt=prompt,
         max_tokens=100
     )
-return response.choices[0].text.strip()
+    return response.choices[0].text.strip()
 
 # Streamlit UI
 st.title("Creative Writing Prompt Generator")
