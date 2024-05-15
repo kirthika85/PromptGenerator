@@ -7,11 +7,11 @@ from langchain.llms import OpenAI
 
 def generate_prompt(topic, genre, length):
     prompt = f"Write a {genre} story about {topic}. It should be {length} words long."
-    # response = openai.Completion.create(
-    #   engine="text-davinci-002",
-    #   prompt=prompt,
-    #   max_tokens=100
-    response=OpenAI(temperature=0.7, openai_api_key=openai_api_key)
+    response = openai.Completion.create(
+        engine="text-davinci-002",
+        prompt=prompt,
+         max_tokens=100
+    #   response=OpenAI(temperature=0.7, openai_api_key=openai_api_key)
     )
     return response.choices[0].text.strip()
 
