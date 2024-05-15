@@ -29,7 +29,7 @@ generate_button = st.button("Generate Prompt")
 # Validation api_key
 with st.form('my_form'):
      submitted = st.form_submit_button('Submit')
-    if not openai_api_key.startswith('sk-'):
+     if not openai_api_key.startswith('sk-'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
             if submitted and openai_api_key.startswith('sk-'):
                 # Generate prompt on button click
