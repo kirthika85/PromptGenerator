@@ -25,20 +25,17 @@ genre = st.selectbox("Select genre:", ["Science Fiction", "Fantasy", "Mystery", 
 length = st.slider("Select prompt length (words):", min_value=50, max_value=200, step=10, value=100)
 generate_button = st.button("Generate Prompt")
 
-# Generate prompt on button click
-if generate_button:
-    if topic:
-        st.write("Generating prompt...")
-        prompt = generate_prompt(topic, genre, length)
-        st.write(f"**Prompt:** {prompt}")
-    else:
-        st.error("Please enter a topic.")
-        
+     
 # Validation api_key
 with st.form('my_form'):
-    text = st.text_area('Enter text:', 'What are the three key pieces of advice for learning how to code?')
-    submitted = st.form_submit_button('Submit')
     if not openai_api_key.startswith('sk-'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
     if submitted and openai_api_key.startswith('sk-'):
-        generate_response(text)
+        # Generate prompt on button click
+        if generate_button:
+            if topic:
+                st.write("Generating prompt...")
+                prompt = generate_prompt(topic, genre, length)
+                st.write(f"**Prompt:** {prompt}")
+            else:
+                st.error("Please enter a topic.")
