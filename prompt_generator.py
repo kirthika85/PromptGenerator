@@ -11,12 +11,11 @@ def generate_prompt(topic, genre, length):
         engine="text-davinci-002",
         prompt=prompt,
          max_tokens=100
-    #   response=OpenAI(temperature=0.7, openai_api_key=openai_api_key)
     )
     return response.choices[0].text.strip()
 
 # Streamlit UI
-st.title("WriteGenie: Creative Writing Prompt Generator")
+st.title("Creative Writing Prompt Generator")
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
 # Input fields
@@ -27,11 +26,11 @@ generate_button = st.button("Generate Prompt")
 
      
 # Validation api_key
-with st.form('my_form'):
-     submitted = st.form_submit_button('Submit')
+#with st.form('my_form'):
+     #submitted = st.form_submit_button('Submit')
      if not openai_api_key.startswith('sk-'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
-     if submitted and openai_api_key.startswith('sk-'):
+     if generate_button and openai_api_key.startswith('sk-'):
         # Generate prompt on button click
         if generate_button:
             if topic:
