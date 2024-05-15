@@ -1,5 +1,4 @@
 import streamlit as st
-pip install openai langchain langchain-openai
 from langchain.llms import OpenAI
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
