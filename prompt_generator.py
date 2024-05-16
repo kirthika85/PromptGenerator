@@ -29,6 +29,6 @@ if generate_button and openai_api_key.startswith('sk-'):
             response=llm.stream(prompt)
             for chunk in response:
               print(chunk.content,end="", flush=True)
-            #st.write(f"**Prompt:** {chunk.content}")
+            st.write(f"**Prompt:** {chunk.content}")
         else:
             st.error("Please enter a topic.")
