@@ -8,7 +8,7 @@ from langchain.llms import ChatOpenAI
 
 def generate_prompt(topic, genre):
     prompt = f"Write a {genre} story about {topic}"
-    response = OpenAI.
+    #response = OpenAI.
     
     # Streamlit UI
 st.title("Creative Writing Prompt Generator")
