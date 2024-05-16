@@ -13,7 +13,7 @@ def generate_prompt(topic,genre):
     print(input)
     response=llm.invoke(input)
     print(response)
-    return(response)
+    #return(response)
     
 # Streamlit UI
 st.title("Creative Writing Prompt Generator")
@@ -34,7 +34,7 @@ if generate_button and openai_api_key.startswith('sk-'):
     if generate_button:
         if topic:
             st.write("Generating prompt...")
-            prompt1=generate_prompt(topic,genre)
+            generate_prompt(topic,genre)
             st.write(f"**Prompt:** {prompt1}")
         else:
             st.error("Please enter a topic.")
