@@ -2,15 +2,18 @@ import streamlit as st
 import openai
 from langchain.llms import OpenAI
 from langchain_openai import ChatOpenAI
-#from langchain_openai import ChatOpenAI
-#from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 
 
 def generate_prompt(topic, genre):
     prompt = f"Write a {genre} story about {topic}"
-    #response = OpenAI.
+    llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo",temperature=0.5)
+    input = ChatPromptTemplate.from_template(prompt)
+    chain = prompt | llm
+    response=chain.invoke()
+    return(response)
     
-    # Streamlit UI
+# Streamlit UI
 st.title("Creative Writing Prompt Generator")
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
