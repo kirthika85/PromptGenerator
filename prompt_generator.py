@@ -28,6 +28,6 @@ if generate_button and openai_api_key.startswith('sk-'):
             response=llm.stream("Write a {genre} story about {topic}")
             for chunk in response:
               print(chunk.content,end="", flush=True)
-            st.write(f"**Prompt:** {prompt1}")
+            #st.write(f"**Prompt:** {chunk.content}")
         else:
             st.error("Please enter a topic.")
