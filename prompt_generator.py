@@ -7,7 +7,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 def generate_prompt(topic,genre):
     print("Entered the function")
-    prompt = "Write a {genre} story about {topic}"
+    prompt = f"Write a {genre} story about {topic}"
     print(prompt)
     llm=OpenAI(api_key=openai_api_key,temperature=0.5)
     input=ChatPromptTemplate.from_template(prompt)
