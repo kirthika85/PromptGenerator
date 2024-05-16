@@ -13,6 +13,7 @@ topic = st.text_input("Enter topic:")
 genre = st.selectbox("Select genre:", ["Science Fiction", "Fantasy", "Mystery", "Romance", "Thriller"])
 #length = st.slider("Select prompt length (words):", min_value=50, max_value=200, step=10, value=100)
 generate_button = st.button("Generate Story")
+concatenated_content = ""
 
      
 # Validation api_key
