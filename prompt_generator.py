@@ -28,7 +28,7 @@ if generate_button and openai_api_key.startswith('sk-'):
             llm=ChatOpenAI(api_key=openai_api_key,temperature=0.8,model_name="gpt-3.5-turbo")
             response=llm.stream(prompt)
             for chunk in response:
-                content_without_timestamps = ''.join(filter(lambda x: not x.isdigit(), chunk.content.decode('utf-8')))
+                content_without_timestamps = ''.join(filter(lambda x: not x.isdigit(), chunk.content))
                 #print(content_without_timestamps, end="", flush=True)
                 concatenated_content += content_without_timestamps
                 st.write(f"**Prompt:** chunk.content")
