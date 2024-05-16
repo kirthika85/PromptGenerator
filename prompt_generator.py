@@ -9,8 +9,7 @@ def generate_prompt(topic, genre):
     prompt = f"Write a {genre} story about {topic}"
     llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo",temperature=0.5)
     input = ChatPromptTemplate.from_template(prompt)
-    chain = input | llm
-    response=chain.invoke()
+    response=llm.invoke(input)
     return(response)
     
 # Streamlit UI
