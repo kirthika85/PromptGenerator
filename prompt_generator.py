@@ -6,6 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 def generate_prompt(topic,genre):
+    print("Entered the function")
     prompt = f"Write a {genre} story about {topic}"
     print(prompt)
     llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo",temperature=0.5)
@@ -13,11 +14,12 @@ def generate_prompt(topic,genre):
     print(input)
     response=llm.invoke(input)
     print(response)
-    #return(response)
+    return(response)
     
 # Streamlit UI
 st.title("Creative Writing Prompt Generator")
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
+
 
 # Input fields
 topic = st.text_input("Enter topic:")
@@ -34,7 +36,9 @@ if generate_button and openai_api_key.startswith('sk-'):
     if generate_button:
         if topic:
             st.write("Generating prompt...")
-            generate_prompt(topic,genre)
+            print(topic)
+            print(genre)
+            prompt1=generate_prompt(topic,genre)
             st.write(f"**Prompt:** {prompt1}")
         else:
             st.error("Please enter a topic.")
