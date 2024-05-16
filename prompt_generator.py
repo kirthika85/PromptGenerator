@@ -30,7 +30,6 @@ if generate_button and openai_api_key.startswith('sk-'):
             response=llm.stream(prompt)
             for chunk in response:
                 content_without_timestamps = ''.join(filter(lambda x: not x.isdigit(), chunk.content))
-                #print(content_without_timestamps, end="", flush=True)
                 concatenated_content += content_without_timestamps
             st.write(f"{concatenated_content}")
         else:
