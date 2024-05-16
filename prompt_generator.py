@@ -10,7 +10,7 @@ def generate_prompt(topic,genre):
     prompt = f"Write a {genre} story about {topic}"
     print(prompt)
     llm=OpenAI(api_key=openai_api_key,temperature=0.5)
-    input=ChatPromptTemplate.from_template(prompt)
+    input=ChatPromptTemplate.from_template({prompt})
     chain = input | llm
     response=chain.invoke({input})
     print(response)
