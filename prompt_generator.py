@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
 
-def generate_prompt(topic, genre):
+def generate_prompt(topic,genre):
     prompt = f"Write a {genre} story about {topic}"
     print(prompt)
     llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo",temperature=0.5)
@@ -34,7 +34,7 @@ if generate_button and openai_api_key.startswith('sk-'):
     if generate_button:
         if topic:
             st.write("Generating prompt...")
-            prompt=generate_prompt(topic, genre)
-            st.write(f"**Prompt:** {prompt}")
+            prompt1=generate_prompt(topic,genre)
+            st.write(f"**Prompt:** {prompt1}")
         else:
             st.error("Please enter a topic.")
