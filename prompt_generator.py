@@ -32,6 +32,6 @@ if generate_button and openai_api_key.startswith('sk-'):
                 content_without_timestamps = ''.join(filter(lambda x: not x.isdigit(), chunk.content))
                 #print(content_without_timestamps, end="", flush=True)
                 concatenated_content += content_without_timestamps
-                st.write(f"**Prompt:** {concatenated_content}")
+            st.write(f"**Prompt:** {concatenated_content}")
         else:
             st.error("Please enter a topic.")
