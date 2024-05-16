@@ -23,9 +23,7 @@ if generate_button and openai_api_key.startswith('sk-'):
     # Generate prompt on button click
     if generate_button:
         if topic:
-            st.write("Generating prompt...")
-            print(topic)
-            print(genre)
+            st.write("Generating prompt...")                
             prompt="Write a {genre} story about {topic}"
             llm=OpenAI(api_key=openai_api_key,temperature=0.5)
             response=llm.stream("Write a {genre} story about {topic}")
