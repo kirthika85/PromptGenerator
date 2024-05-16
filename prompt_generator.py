@@ -36,8 +36,8 @@ if generate_button and openai_api_key.startswith('sk-'):
     if generate_button:
         if topic:
             st.write("Generating prompt...")
-            print(topic)
-            print(genre)
+            print({topic})
+            print({genre})
             prompt1=generate_prompt(topic,genre)
             st.write(f"**Prompt:** {prompt1}")
         else:
