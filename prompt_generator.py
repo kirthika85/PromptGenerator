@@ -7,9 +7,11 @@ from langchain_core.prompts import ChatPromptTemplate
 
 def generate_prompt(topic, genre):
     prompt = f"Write a {genre} story about {topic}"
+    print(prompt)
     llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo",temperature=0.5)
     input = ChatPromptTemplate.from_template(prompt)
-    response=llm.invoke({input})
+    print(input)
+    response=llm.invoke(input)
     print(response)
     return(response)
     
