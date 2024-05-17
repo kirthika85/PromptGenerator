@@ -11,7 +11,7 @@ openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 # Input fields
 topic = st.text_input("Enter topic:")
 genre = st.selectbox("Select genre:", ["Science Fiction", "Fantasy", "Mystery", "Romance", "Thriller"])
-#length = st.slider("Select prompt length (words):", min_value=50, max_value=200, step=10, value=100)
+length = st.slider("Select prompt length (words):", min_value=50, max_value=200, step=10, value=100)
 generate_button = st.button("Generate Story")
 concatenated_content = ""
 
@@ -31,6 +31,9 @@ if generate_button and openai_api_key.startswith('sk-'):
             for chunk in response:
                 content_without_timestamps = ''.join(filter(lambda x: not x.isdigit(), chunk.content))
                 concatenated_content += content_without_timestamps
+                if len(concatenated_content) >= length:
+                    concatenated_content = concatenated_content[:length]
+                    break 
             st.write(f"{concatenated_content}")
         else:
             st.error("Please enter a topic.")
