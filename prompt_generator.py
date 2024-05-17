@@ -23,7 +23,7 @@ if generate_button and openai_api_key.startswith('sk-'):
     # Generate prompt on button click
     if generate_button:
         if topic:
-            st.write("Generating prompt...")                
+            st.write("Generating Story...")                
             prompt=f"Write a {genre} story about {topic}"
             print(prompt)
             llm=ChatOpenAI(api_key=openai_api_key,temperature=0.8,model_name="gpt-3.5-turbo")
