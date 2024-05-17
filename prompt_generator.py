@@ -32,8 +32,12 @@ if generate_button and openai_api_key.startswith('sk-'):
                 content_without_timestamps = ''.join(filter(lambda x: not x.isdigit(), chunk.content))
                 concatenated_content += content_without_timestamps
                 if len(concatenated_content) >= length:
-                    concatenated_content = concatenated_content[:length]
-                    break 
+                    last_full_stop_index = concatenated_content[:length].rfind('.')
+                        if last_full_stop_index != -1:
+                            concatenated_content = concatenated_content[:last_full_stop_index + 1]
+                        else:
+                            concatenated_content = concatenated_content[:length]
+                        break 
             st.write(f"{concatenated_content}")
         else:
             st.error("Please enter a topic.")
