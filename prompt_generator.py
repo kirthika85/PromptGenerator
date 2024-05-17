@@ -25,7 +25,6 @@ if generate_button and openai_api_key.startswith('sk-'):
         if topic:
             st.write("Generating Story...")                
             prompt=f"Write a {genre} story about {topic}"
-            print(prompt)
             llm=ChatOpenAI(api_key=openai_api_key,temperature=0.8,model_name="gpt-3.5-turbo")
             response=llm.stream(prompt)
             for chunk in response:
