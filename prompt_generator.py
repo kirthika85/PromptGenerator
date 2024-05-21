@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
   
 # Streamlit UI
-st.title("Creative Writing Prompt")
+st.title("Creative Writing")
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
 
